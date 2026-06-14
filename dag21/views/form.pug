@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Opret bruger
+  body
+    h1 Opret bruger
+
+    form(action="/user" method="POST")
+      div
+        label Username:
+        input(type="text" name="username" required)
+
+      div
+        label Type:
+        input(type="text" name="type" required)
+
+      button(type="submit") Opret

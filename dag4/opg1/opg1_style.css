@@ -1,0 +1,7 @@
+#sprog {
+    border: 4px solid red;   /* the border */
+    display: inline-block;    /* shrink-wrap to content */
+    padding-left: 20px;            /* space between border and list items */
+    padding-right: 20px;            /* space between border and list items */
+    list-style-position: inside; /* bullets inside the padding */
+}

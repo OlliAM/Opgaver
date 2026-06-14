@@ -1,0 +1,27 @@
+body {
+    font-family: Verdana;
+    font-size: 1.2rem;
+}
+
+div.box > p {
+    font-family: 'Times New Roman';
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+}
+
+.wrapper > div {
+    background: #c2be0e;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .wrapper > div {
+        background: #fe0ad0;
+    }
+}

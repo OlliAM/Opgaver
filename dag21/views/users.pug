@@ -1,0 +1,12 @@
+doctype html
+html
+  head
+    title Brugere
+  body
+    h1 Alle brugere
+
+    a(href="/") Opret ny bruger
+
+    ul
+      each user in users
+        li #{user.username} - #{user.type}
