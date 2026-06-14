@@ -1,0 +1,15 @@
+html
+    head 
+        script(src="/js/submit.js" defer) 
+    body 
+        p 
+            | Dette er 
+            a(href="https://www.twitch.tv/forsen") forsen
+        form(action="/adduser", method="post")
+            input(type="text", name="username", id="username", placeholder="Indtast brugernavn")
+            input(type="text", name="password", id="password", placeholder="Indtast kodeord")
+            button(type="submit", id="btnCreateUser")
+                strong Opret 
+                | bruger
+        p 
+            a(href="/login") Gå til login siden? 

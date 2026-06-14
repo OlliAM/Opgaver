@@ -1,0 +1,9 @@
+html 
+    include includes/head
+    body
+        include includes/addCar
+        h3 liste af biler 
+        ul 
+            each car in cars
+                li
+                    a(href="/addcar/" + car.id)= car.brand + ' ' + car.model

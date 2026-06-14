@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    title PUBLIC mappen
+    style.
+      body { font-family: Arial, sans-serif; padding: 20px; }
+      ul { list-style-type: none; padding-left: 20px; }
+      li.folder { font-weight: bold; margin-top: 10px; }
+      li.file { margin-left: 20px; }
+
+  body
+    h1 Indhold af #{currentPath || 'PUBLIC'}-mappen
+
+    if contents.length === 0
+      p Mappen er tom.
+    else
+      ul
+  each item in contents
+    if item.type === 'folder'
+      li.folder
+        a(href=`?path=${item.fullPath}`)= item.name
+    else
+      li.file
+         a(href=`/public/${item.fullPath}` target="_blank")= item.name
+
+if parentPath !== null
+  p
+    a(href=`?path=${parentPath}`) ← Gå tilbage

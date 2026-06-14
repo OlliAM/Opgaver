@@ -1,0 +1,23 @@
+p, li {
+    margin-left: 1em;
+    color: maroon;
+}
+
+body {
+    background-color: black;
+}
+
+#addcar, #car {
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+    background-color: bisque;
+    padding: 20px;
+}
+
+
+
+input, button {
+    display: block;
+    margin: 10px;
+}
