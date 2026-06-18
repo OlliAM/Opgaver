@@ -7,7 +7,7 @@ function langvarig(nr, callback) {
         if (type === 1) callback(false, `${nr} OK!`);
         else if (type === 2) callback(`${nr} Ikke OK!`);
     }
-}
+}   
 
 try {
     langvarig(1, slut);

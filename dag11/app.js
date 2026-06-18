@@ -14,6 +14,10 @@ app.get('/:figletText', (request, response) => {
     })
 })
 
+app.get('/', (request, response) => {
+    response.redirect('/Mikkel_Er_Gay')
+})
+
 app.listen(8000, () => {
     console.log("Jim er asian, Clerk har tism, Mikkel er gay")
 })

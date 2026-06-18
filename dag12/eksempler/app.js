@@ -14,7 +14,7 @@ app.use(express.json())
 
 // ROUTES
 app.get('/', (request, response) => {
-    response.send('<html><head><title>World Hello</title></head><body><h1>Flot grammatik brormand</h1></body></html>')
+    response.redirect('/frontpage.html')
 })
 
 app.post('/adduser', (request, response) => {

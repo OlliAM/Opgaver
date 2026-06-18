@@ -1,0 +1,15 @@
+html
+    head
+        title Velkommen
+        script(src="index.js" defer) 
+    body
+        ul
+            each person in personer
+                li(id=person.id)
+                    span#navn #{person.navn}
+                    | -
+                    span#telefon #{person.telefon}
+                    input(type="text", name="telefon", placeholder="Indtast nyt telefonnummer" id="inputtelefon")
+                    button(type="submit", id="btnOpdaterTelefon") Opdater telefonnummer
+
+        

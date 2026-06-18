@@ -1,0 +1,14 @@
+html
+    head
+        title Velkommen
+        script(src="index.js" defer) 
+    body
+        form(action="/addPerson", method="post")
+            input(type="text", name="navn", placeholder="Indtast navn" id="navn")
+            input(type="text", name="adresse", placeholder="Indtast adresse" id="adresse")
+            button(type="submit" id="btnCreateUser") Tilføj
+        h1 Brugere:
+        ul
+            each person in personer 
+                li #{person.navn} - #{person.adresse}
+        

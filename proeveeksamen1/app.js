@@ -1,7 +1,8 @@
 import express from 'express'
 import User from './model/user.js';
 
-const users = []
+const users = [new User("Jim", "Asian Land")]
+
 
 const response = await fetch('https://randomuser.me/api/?results=5');
 const data = await response.json();
