@@ -1,6 +1,11 @@
 html
-    body 
-        p Liste af kunder
-            ul
-                each user in users
-                    li #{user.name}
+    head
+        script(src="index.js" defer) 
+    body
+        h1 Kunder
+        ul
+            each kunde in kunder 
+                li(id=kunde.nr, class="kunde")= kunde.navn
+        h1 Valgte kunde
+        p(id="valgteKunde")
+            

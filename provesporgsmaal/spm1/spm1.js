@@ -26,7 +26,7 @@ let flestHjul = biler
 let bilerMedFlestHjul = biler.filter(bil => bil.antalHjul === flestHjul)
 console.log(bilerMedFlestHjul)
 
-bilerPrAntalHjul = biler.reduce((acc, bil) => {
+const bilerPrAntalHjul = biler.reduce((acc, bil) => {
     const hjul = bil.antalHjul
 
     if(!acc[hjul]) {

@@ -1,5 +1,5 @@
 {
-  "name": "proeveeksamen",
+  "name": "proeveeksamen1",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
@@ -12,7 +12,6 @@
   "type": "module",
   "dependencies": {
     "express": "^5.2.1",
-    "pug": "^3.0.4",
-    "static": "^2.0.0"
+    "pug": "^3.0.4"
   }
 }

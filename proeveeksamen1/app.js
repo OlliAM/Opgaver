@@ -1,28 +1,23 @@
 import express from 'express'
-import User from './model/user.js';
+import Kunde from './model/kunde.js'
+import KundeController from './controller/kundecontroller.js'
 
-const users = [new User("Jim", "Asian Land")]
-
-
-const response = await fetch('https://randomuser.me/api/?results=5');
-const data = await response.json();
-data.results.forEach(user => {
-  let name = `${user.name.first} ${user.name.last}`
-  let address = `${user.location.street.number} ${user.location.street.name}, ${user.location.city}, ${user.location.state}`
-  users.push(new User(name, address))
-})
 const app = express()
+app.use(express.static('assets'))
+
 app.set('view engine', 'pug')
+app.use(express.json())
 
 app.get('/', (request, response) => {
-    response.render('index', {users})
+    response.render('index', {kunder: KundeController.kunder})
 })
 
-app.get('/user/:nr', (request, response) => {
-    const user = users[request.params.address];
-    response.render('user', { user });
+app.get('/:nr', (request, response) => {
+    const nr = Number.parseInt(request.params.nr)
+    const kunde = KundeController.getKunde(nr)
+    response.json(kunde)
 })
 
 app.listen(8000, () => {
-  console.log('Server kører på http://localhost:8000')
+  console.log('Server kører på http://localhost:8000') 
 })

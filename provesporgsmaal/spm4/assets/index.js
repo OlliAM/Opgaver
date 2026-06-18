@@ -1,6 +1,5 @@
 document.querySelector('button#btnCreateUser')
     .addEventListener('click', async (event) => {
-        event.preventDefault()
         const navn = document.querySelector('input#navn').value
         const adresse = document.querySelector('input#adresse').value
         const respons = await fetch('/addPerson', {

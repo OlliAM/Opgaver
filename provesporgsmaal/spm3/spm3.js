@@ -1,10 +1,10 @@
 function getTalISyttenTabel() {
     return new Promise(function (resolve, reject) {
-        const timeout = Math.trunc((Math.random() * 2001) + 1000)
+        const timeout = Math.trunc((Math.random() * 2001)) + 1000
         setTimeout(udregnTal, timeout)
         function udregnTal() {
-            const rand = Math.trunc(Math.random() * 2000)
-            if (rand % 17 === 1) resolve(`17 går op i ${rand}`)
+            const rand = Math.trunc(Math.random() * 2001)
+            if (rand % 17 === 0) resolve(`17 går op i ${rand}`)
             else reject(`17 går ikke op i ${rand}`)
         }
     })
@@ -15,10 +15,12 @@ getTalISyttenTabel()
     .catch(fejl => console.log(fejl))
 
 function prov3Gange() {
-    Promise.all([getTalISyttenTabel(), getTalISyttenTabel(), getTalISyttenTabel()])
-    .then(resultater => console.log(`17 gik op i alle tal! - ${resultater}`))
-    .catch(fejl => console.log(`17 gik ikke op i alle tal :( - ${fejl}`))
+    Promise.any([getTalISyttenTabel(), getTalISyttenTabel(), getTalISyttenTabel()])
+    .then(resultater => console.log(`17 gik op i et tal! - ${resultater}`))
+    .catch(fejl => console.log(`17 gik ikke op i nogle tal :( - ${fejl}`))
 }
+
+
 
 function provxGange(x) {
     const array = []
@@ -27,10 +29,11 @@ function provxGange(x) {
         array.push(getTalISyttenTabel())
     }
 
-    Promise.all(array)
-    .then(resultater => console.log(`17 gik op i alle tal! - ${resultater}`))
-    .catch(fejl => console.log(`17 gik ikke op i alle tal :( - ${fejl}`))
+    Promise.any(array)
+    .then(resultater => console.log(`17 gik op i et tal! - ${resultater}`))
+    .catch(fejl => console.log(`17 gik ikke op i nogle tal :( - ${fejl}`))
 }
 
-provxGange(1)
-provxGange(10)
+prov3Gange()
+//provxGange(1)
+//provxGange(10)
