@@ -1,5 +1,7 @@
 import express from 'express'
 import session from 'express-session'
+import { db } from './firebase.js'
+import { collection, getDocs, addDoc, deleteDoc } from "firebase/firestore";
 
 const app = express()
 app.use(express.static('assets'))
@@ -13,15 +15,24 @@ app.use(session({
     resave: true
 }))
 
+const personer = []
+
+const snapshot = await getDocs(collection(db, 'Personer'))
+snapshot.forEach(person => personer.push(person.data()))
+
 app.get('/', (request, response) => {
     if(!request.session.personer) {
-        request.session.personer = []
+        request.session.personer = personer
     }
-    response.render('index', {personer: request.session.personer})
+    response.render('index', {personer})
 })
 
-app.post('/tilfojPerson', (request, response) => {
+app.post('/tilfojPerson', async (request, response) => {
     const person = request.body
+    await addDoc(collection(db, 'Personer'), {
+        navn: person.navn,
+        adresse: person.adresse
+    })
     request.session.personer.push(person)
     response.send(person)
 })
