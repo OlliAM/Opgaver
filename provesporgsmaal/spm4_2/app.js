@@ -1,7 +1,6 @@
 import express from 'express'
 import session from 'express-session'
-import { db } from './firebase.js'
-import { collection, getDocs, addDoc, deleteDoc } from "firebase/firestore";
+
 
 const app = express()
 app.use(express.static('assets'))
@@ -20,7 +19,7 @@ const personer = []
 const snapshot = await getDocs(collection(db, 'Personer'))
 snapshot.forEach(person => personer.push(person.data()))
 
-app.get('/', (request, response) => {
+app.get('', (request, response) => {
     if(!request.session.personer) {
         request.session.personer = personer
     }
@@ -33,7 +32,7 @@ app.post('/tilfojPerson', async (request, response) => {
         navn: person.navn,
         adresse: person.adresse
     })
-    request.session.personer.push(person)
+    personer.push(person)
     response.send(person)
 })
 

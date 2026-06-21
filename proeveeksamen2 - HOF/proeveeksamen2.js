@@ -1,4 +1,6 @@
 const array = [{ name: 'jim', kast: [1, 2, 3] }, { name: 'clerk', kast: [1, 1, 1] }, { name: 'arthur', kast: [6, 6, 6] }, { name: 'arthur', kast: [1, 3, 5] }]
+const arrayString = '[{"name":"jim","kast":[1,2,3]},{"name":"clerk","kast":[1,1,1]},{"name":"arthur","kast":[6,6,6]},{"name":"arthur","kast":[1,3,5]}]'
+
 
 function kast(navn, array) {
     return array.filter(kast => kast.name === navn)
@@ -14,6 +16,7 @@ console.log(størst(array))
 
 
 const jsonArray = JSON.stringify(array)
+console.log(jsonArray)
 
 function terning(json) {
     const array = JSON.parse(json)
